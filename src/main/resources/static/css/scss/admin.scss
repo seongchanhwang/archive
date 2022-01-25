@@ -1,23 +1,16 @@
 @import "inc";
-
+body {
+  background: #f7f7f7;
+}
 .admin-login {
   position: relative;
-  .bg {
-    position: fixed;
-    z-index: -1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    // background: url("/img/admin/admin-login-bg.jpg") center;
-    background-size: cover;
-    transform: scale(1.3);
-    filter: blur(50px);
-  }
+  max-width: 480px;
+  margin: 0 auto;
   article {
-    // cursor: pointer;
-    // border: 1px solid #ddd;
-    // padding: 50px;
+    width: 100%;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+    background: #fff;
   }
   form {
     display: flex;
@@ -43,32 +36,81 @@
         max-width: inherit;
       }
     }
-    .name {
-      color: #333;
-      font-size: 3rem;
-      margin: 12px 0 30px;
-      font-weight: 300;
-    }
 
     .input-area {
       position: relative;
+
+      input {
+        font-size: 1.6rem;
+        font-weight: 400;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        height: 50px;
+        padding: 0 12px;
+        &::placeholder {
+          color: #999;
+          font-weight: 300;
+        }
+      }
+
+      > p {
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
     }
 
-    input {
-      border: 1px solid #ddd;
-      height: 42px;
-      padding: 0 15px;
-      width: 100%;
-      font-size: $font-size15;
-      border-radius: 6px;
+    .id-remember {
+      margin-top: 20px;
+      position: relative;
+      input {
+        position: absolute;
+        z-index: -9999px;
+        &:checked {
+          + label {
+            span {
+              i {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      label {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        color: #888;
+      }
+      span {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ddd;
+        margin-right: 8px;
+        i {
+          font-size: 18px;
+          color: #5c6486;
+          display: none;
+        }
+      }
     }
 
     button {
-      font-size: 2rem;
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-48%);
+      margin-top: 80px;
+      width: 100%;
+      max-width: 280px;
+      height: 55px;
+      border-radius: 25px;
+      background: #5c6486;
+      color: #fff;
+      font-size: 1.8rem;
+      transition: all 0.5s;
+      &:hover {
+        border: 1px solid #5c6486;
+        color: #5c6486;
+        background: #fff;
+      }
     }
   }
 }

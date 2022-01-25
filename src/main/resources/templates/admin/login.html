@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/.css" />
-    <link rel="stylesheet" href="/css/admin.css" />
-    <link rel="stylesheet"  href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
-  </head>
-  <body>
-    <div class="admin-login">
-      <div class="bg"></div>
-      <form action="/admin/login" method="post">
-        <article>
-          <div class="thum">
-            <img src="/img/admin/admin_thum_test.jpg" alt="" />
-          </div>
-          <input class="name" type="text" value="chan" name="userName"/>
-          <div class="input-area">
-            <input type="password" name="password" id="" placeholder="password" />
-            <button type="submit"><i class="xi-search"></i></button>
-          </div>
-        </article>
-        <article>
-          <div class="thum">
-            <img src="/img/admin/admin_thum_test.jpg" alt="" />
-          </div>
-          <div class="name">UserName</div>
-          <div class="input-area">
-            <input type="password" name="pw" id="pw" placeholder="password" />
-            <button type="submit"><i class="xi-search"></i></button>
-          </div>
-        </article>
-      </form>
-    </div>
-  </body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="/css/reset.css" />
+	<link rel="stylesheet" href="/css/admin.css" />
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
+</head>
+
+<body>
+	<div class="admin-login">
+		<div class="bg"></div>
+		<form action="/admin/login" method="post">
+			<article>
+				<div class="thum">
+					<img src="/img/admin/admin-logo.png" alt="" />
+				</div>
+				<!-- <div class="txt">Welcome back!</div> -->
+				<div class="input-area">
+					<p><input class="name" type="text" value="" name="userName" placeholder="Username" /></p>
+					<p><input type="password" name="password" id="" placeholder="password" /></p>
+				</div>
+				<div class="id-remember">
+					<input type="checkbox" name="" id="id-chk">
+					<label for="id-chk">
+						<span><i class="xi-check-min"></i></span>
+						아이디 저장하기
+					</label>
+				</div>
+				<button type="submit">SIGN IN</button>
+			</article>
+		</form>
+	</div>
+</body>
+
 </html>
