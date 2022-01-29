@@ -25,6 +25,7 @@ public class AdminController {
 
 	/**
 	 * 어드민페이지 view
+	 * 
 	 * @param model
 	 * @return
 	 */
@@ -36,32 +37,38 @@ public class AdminController {
 
 	/**
 	 * 로그인
-	 * userName, password를 AdminForm과 매핑해서 가져온 후 로그인 처리한다.
+	 * userName, password를 AdminForm과 매핑해서 로그인 처리한다.
+	 * 
 	 * @return
 	 */
 	@PostMapping("/admin/login")
-	public String login(AdminForm form, HttpSession session){
-		//1. pw와 name을 가져와서 model에 매핑한다.
+	public String login(AdminForm form, HttpSession session) {
+		// 1. pw와 name을 가져와서 model에 매핑한다.
 		Admin admin = new Admin();
-		log.info("userName: " + form.getUserName() );
-		log.info("password: " + form.getpassword() );
+		log.info("userName: " + form.getUserName());
+		log.info("password: " + form.getpassword());
 		admin.setUserName(form.getUserName());
 		admin.setpassword(form.getpassword());
-		String resultMessage = service.login(admin,session);
+		String resultMessage = service.login(admin, session);
 		log.info("message :" + resultMessage);
 
-		return "/admin/home";
+		return "redirect:/admin/home";
 	}
 
 	/**
 	 * 로그아웃
 	 * 세션을 초기화한다.
+	 * 
 	 * @return
 	 */
 	@PostMapping("admin/logut")
-	public String logout(){
+	public String logout() {
 
 		return "/admin/login";
 	}
 
+	@GetMapping("/admin/home")
+	public String adminHome(AdminForm form, HttpSession session) {
+		return "/admin/home";
+	}
 }
