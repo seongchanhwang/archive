@@ -1,0 +1,28 @@
+body {
+  background: #151515;
+}
+.scroll-section {
+  padding-top: 50vh;
+  position: relative;
+}
+.mainTit {
+  top: -10vh;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  h2 {
+    font-size: 10rem;
+    font-weight: 700;
+  }
+  p {
+    font-size: 2rem;
+  }
+}
+.profileImg {
+  mix-blend-mode: soft-light;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+}
