@@ -106,11 +106,11 @@
 				const messageA_translateY_in = calcValues(values.messageA_translateY_in, currentYoffset)
 				const messageA_translateY_out = calcValues(values.messageA_translateY_out, currentYoffset)
 				if (scrollRatio <= 0.22) {
-					// in
+					// in 
 					objs.messageA.style.opacity = messageA_opacity_in;
 					objs.messageA.style.transform = `translateY(${messageA_translateY_in}%)`;
 				} else {
-					// out
+					// out 
 					objs.messageA.style.opacity = messageA_opacity_out;
 					objs.messageA.style.transform = `translateY(${messageA_translateY_out}%)`;;
 				}
