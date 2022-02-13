@@ -100,6 +100,7 @@ body.before-load {
   height: 3em;
   font-size: 2.5rem;
   opacity: 0;
+  top: 35vh;
 }
 
 .main-message p {
@@ -181,7 +182,6 @@ body.before-load {
 
 .sticky-elem {
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
   text-align: center;
