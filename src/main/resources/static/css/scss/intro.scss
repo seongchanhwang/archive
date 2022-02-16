@@ -1,32 +1,3 @@
-// body {
-//   background: #151515;
-// }
-// .scroll-section {
-//   padding-top: 50vh;
-//   position: relative;
-// }
-// .mainTit {
-//   top: -10vh;
-//   position: relative;
-//   text-align: center;
-//   width: 100%;
-//   color: #fff;
-//   h2 {
-//     font-size: 10rem;
-//     font-weight: 700;
-//   }
-//   p {
-//     font-size: 2rem;
-//   }
-// }
-// .profileImg {
-//   mix-blend-mode: soft-light;
-//   position: fixed;
-//   right: 0;
-//   bottom: 0;
-//   width: 50%;
-// }
-
 html {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
@@ -35,18 +6,35 @@ body {
   overflow-x: hidden;
   color: rgb(29, 29, 31);
   letter-spacing: -0.05em;
-  background: white;
+  // background: white;
+	background: #111;
 }
 p {
   line-height: 1.6;
 }
 a {
-  color: rgb(29, 29, 31);
+	color: rgb(29, 29, 31);
   text-decoration: none;
 }
 
 body.before-load {
-  overflow: hidden;
+	overflow: hidden;
+}
+
+
+.profileImg {
+	padding-top: 40px;
+	z-index: -1;
+	position: fixed;
+	display: flex;
+	justify-content: flex-end;
+	mix-blend-mode: soft-light;
+	right:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: all 0.5s;
 }
 
 .container {
@@ -106,20 +94,85 @@ body.before-load {
 }
 
 #scroll-section-0 {
-  h1 {
-    font-size: 4rem;
-    text-align: center;
-  }
+	h1 {
+		text-align: center;
+		color:#fff;
+		transition: all 1s;
+		opacity: 0;
+		letter-spacing: 10px;
+		p {
+			font-size: 8rem;
+			font-weight: 900;
+			line-height: 1;
+			margin-bottom: 40px;
+		}
+
+		span {
+			font-size: 3rem;
+			font-weight: 300;
+		}
+
+	}
+
+	.mainVisual_txt {
+		position: relative;
+		transform: translateY(-50%);
+		z-index: 100;
+
+		ul {
+			margin-top: 60px;
+			display: flex;
+			justify-content: center;
+			gap: 0 20px;
+			transform: translateY(100px);
+			opacity: 0;
+			transition: all 1s;
+
+			li {
+				width: 100%;
+				max-width: 200px;
+			}
+
+			button {
+				width: 100%;
+				font-size: 2rem;
+				border: 1px solid #fff;
+				border-radius: 10px;
+				padding: 20px;
+				color: #fff;
+				transition: all 0.5s;
+
+				&:hover {
+					background: #fff;
+					color: #d30000;
+				}
+			}
+		}
+
+		&.on {
+			h1 {
+				letter-spacing: 0.5px ;
+				opacity: 1 ;
+			}
+			ul {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
 }
 
+
+
 .main-message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3em;
-  font-size: 2.5rem;
-  opacity: 0;
-	top:35vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 35vh;
+	margin: 5px 0;
+	height: 3em;
+	font-size: 2.5rem;
+	opacity: 0;
   p {
     font-weight: 700;
     text-align: center;
@@ -131,17 +184,14 @@ body.before-load {
     font-size: 1.2rem;
     margin-bottom: 0.5em;
   }
-
-  &.a {
-  }
 }
 
 .description {
-  max-width: 1000px;
-  margin: 0 auto;
-  font-size: 1.2rem;
-  color: #888;
-  padding: 0 1rem;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 1rem;
+	font-size: 1.2rem;
+	color: #888;
   strong {
     font-size: 3rem;
     color: #222;
@@ -154,12 +204,17 @@ body.before-load {
   .main-message {
     font-size: 3.5rem;
   }
+	.b {
+		top:10%;
+		left:40%;
+	}
+	.c {
+		top:15%;
+		left:45%;
+	}
 }
 
-.desc-message {
-  font-weight: bold;
-  width: 50%;
-}
+
 .pin {
   width: 1px;
   height: 100px;
@@ -195,12 +250,18 @@ body.before-load {
 }
 
 .sticky-elem {
+	color:#fff;
   position: fixed;
   // top: 0;
   left: 0;
   width: 100%;
-  text-align: center;
   display: none;
+	&.desc-message {
+		font-size: 1.4rem;
+		width: 45%;
+		font-weight: bold;
+		opacity: 0;
+	}
 }
 
 #show-scene-0 #scroll-section-0 .sticky-elem,
@@ -210,12 +271,12 @@ body.before-load {
   display: block;
 }
 
+.normal-content {
+	margin-bottom: 10rem;
+}
+
 @media (min-width: 1024px) {
-  #scroll-section-0 {
-    h1 {
-      font-size: 9vw;
-    }
-  }
+
   .main-message {
     font-size: 4vw;
     small {
@@ -223,6 +284,7 @@ body.before-load {
     }
   }
   .description {
+		padding: 0;
     font-size: 2rem;
     strong {
       font-size: 6rem;
@@ -233,16 +295,30 @@ body.before-load {
     .main-message {
       font-size: 6vw;
     }
+		.b {
+			top: 20%;
+			left: 53%;
+		}
+
+		.c {
+			left: 55%;
+		}
   }
 
-  .desc-message {
-    width: 20%;
-  }
+	.sticky-elem.desc-message {
+		&.desc-message {
+			width: 20%;
+		}
+	}
   .mid-message {
-    font-size: 4vw;
+		width: 1000px;
+		padding: 0;
+		font-size: 4vw;
   }
 
   .canvas-caption {
-    font-size: 2rem;
+		// margin-top: -8rem;
+		// padding: 0;
+		font-size: 2rem;
   }
 }
