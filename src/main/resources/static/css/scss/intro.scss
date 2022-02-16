@@ -21,6 +21,48 @@ body.before-load {
 	overflow: hidden;
 }
 
+.waveBox {
+	top:-70%;
+	position: absolute;
+	width: 100%;
+	opacity: 0.1;
+}
+
+.wave {
+	opacity: .4;
+	position: absolute;
+	top: 3%;
+	left: 50%;
+	background: rgb(63, 0, 163);
+	width: 3000px;
+	height: 3000px;
+	margin-left: -1500px;
+	margin-top: -1500px;
+	transform-origin: 50% 48%;
+	border-radius: 43%;
+	animation: drift 5s infinite linear;
+}
+
+.wave.-three {
+	animation: drift 7s infinite linear;
+}
+
+.wave.-two {
+	animation: drift 9s infinite linear;
+	opacity: .1;
+	background: yellow;
+}
+
+
+@keyframes drift {
+	from {
+		transform: rotate(0deg);
+	}
+
+	from {
+		transform: rotate(360deg);
+	}
+}
 
 .profileImg {
 	padding-top: 40px;
