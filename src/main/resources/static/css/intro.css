@@ -6,7 +6,7 @@ html {
 
 body {
   overflow-x: hidden;
-  color: #1d1d1f;
+  color: #260401;
   letter-spacing: -0.05em;
   background: #111;
 }
@@ -16,7 +16,7 @@ p {
 }
 
 a {
-  color: #1d1d1f;
+  color: #260401;
   text-decoration: none;
 }
 
@@ -32,7 +32,7 @@ body.before-load {
 }
 
 .wave {
-  opacity: .4;
+  opacity: 0.4;
   position: absolute;
   top: 3%;
   left: 50%;
@@ -56,7 +56,7 @@ body.before-load {
 .wave.-two {
   -webkit-animation: drift 9s infinite linear;
           animation: drift 9s infinite linear;
-  opacity: .1;
+  opacity: 0.1;
   background: yellow;
 }
 
@@ -359,6 +359,75 @@ body.before-load {
 
 .normal-content {
   margin-bottom: 10rem;
+}
+
+/* front-end portfolio*/
+.workPortFolio {
+  margin-top: 240px;
+  gap: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transform: translateX(-50%) rotateX(-15deg) rotateZ(-15deg) scale(1.2);
+          transform: translateX(-50%) rotateX(-15deg) rotateZ(-15deg) scale(1.2);
+  position: relative;
+  left: 50%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.workPortFolio article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+}
+
+.workPortFolio .work-item {
+  opacity: 0.3;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #25262c;
+}
+
+.workPortFolio .work-item:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  background: #2a2a2a;
+  z-index: 10;
+}
+
+.section_tit {
+  text-align: center;
+  margin-bottom: 80px;
+  color: #fff;
+}
+
+.section_tit p {
+  font-size: 8rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.section_tit span {
+  font-size: 2rem;
+  opacity: 0.5;
+  font-weight: 300;
 }
 
 @media (min-width: 1024px) {
