@@ -1,4 +1,9 @@
 @charset "UTF-8";
+:root {
+  --project-color: #fff103;
+  --portfolioBg: #d96767;
+}
+
 html {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
@@ -363,52 +368,109 @@ body.before-load {
 
 /* front-end portfolio*/
 .workPortFolio {
-  margin-top: 240px;
-  gap: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-transform: translateX(-50%) rotateX(-15deg) rotateZ(-15deg) scale(1.2);
-          transform: translateX(-50%) rotateX(-15deg) rotateZ(-15deg) scale(1.2);
+  padding-top: 50px;
   position: relative;
-  left: 50%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
 }
 
-.workPortFolio article {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 12px;
+.workPortFolio .arrows button {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 4rem;
+  color: #fff;
+}
+
+.workPortFolio .arrows button.prev {
+  left: 20px;
+}
+
+.workPortFolio .arrows button.next {
+  right: 20px;
+}
+
+.workPortFolio .slider {
+  position: relative;
 }
 
 .workPortFolio .work-item {
-  opacity: 0.3;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  background: #25262c;
+  padding: 50px 0;
 }
 
-.workPortFolio .work-item:hover {
-  opacity: 1;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  background: #2a2a2a;
-  z-index: 10;
+.workPortFolio .work-item a:hover .more {
+  padding: 10px 20px;
+}
+
+.workPortFolio .work-item a:hover .more::before {
+  width: 100%;
+}
+
+.workPortFolio .work-item::after {
+  content: "";
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: var(--portfolioBg);
+  z-index: -1;
+  -webkit-transition: background 1s;
+  transition: background 1s;
+}
+
+.workPortFolio .work-item .tit {
+  font-size: 4rem;
+  color: #fff;
+  line-height: 1;
+}
+
+.workPortFolio .work-item .cate {
+  font-size: 1.4rem;
+  margin: 20px 0;
+  color: #fff;
+  font-weight: 300;
+}
+
+.workPortFolio .work-item .cate span {
+  display: block;
+}
+
+.workPortFolio .work-item .more {
+  font-size: 1rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #F2F2F2;
+  padding: 10px 0;
+  position: relative;
+}
+
+.workPortFolio .work-item .more::before {
+  content: "";
+  width: 0;
+  height: 100%;
+  background: var(--portfolioBg);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.workPortFolio .work-item a {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .section_tit {
@@ -465,4 +527,164 @@ body.before-load {
   .canvas-caption {
     font-size: 2rem;
   }
+}
+
+.devList {
+  background: #232025;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.devList .title {
+  position: relative;
+  left: auto;
+  top: 0%;
+  right: 0vw;
+  bottom: auto;
+  z-index: 1;
+  width: 88.88888888888889vw;
+  margin-top: 10vh;
+  margin-left: -44.44444444444444vw;
+  float: none;
+  text-align: right;
+}
+
+.devList .title > div {
+  display: inline-block;
+  color: #232025;
+  font-size: 13.5vw;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: -1px 0 0 #d5cdc4, 0 1px 0 #d5cdc4, 1px 0 0 #d5cdc4, 0 -1px 0 #d5cdc4;
+}
+
+.devList .info {
+  width: 44.44444444444444vw;
+  height: 90vh;
+  min-height: 640px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 2.777777777777778vw;
+  position: relative;
+  z-index: 10;
+}
+
+.devList .info .detail {
+  color: #fff;
+  margin-top: 10.6837vh;
+}
+
+.devList .info .detail .projectTit {
+  font-size: 1.563vw;
+  font-weight: 600;
+  margin-bottom: 2.13675vh;
+}
+
+.devList .info .thum {
+  position: absolute;
+  bottom: 0;
+}
+
+.devList .info .thum li {
+  width: 5.555555555555556vw;
+  height: 3.555555555555556vw;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 90%;
+}
+
+.devList .info .thum li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.devList .info .thum ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0 1.25vw;
+  position: relative;
+}
+
+.devList .info .thum .onBox {
+  position: absolute;
+  display: block;
+  height: 100%;
+  left: -5px;
+  top: -5px;
+  padding: 4px;
+  border: 1px solid #d5cdc4;
+  background-color: #232025;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  z-index: -1;
+}
+
+.imgList {
+  overflow: hidden;
+  width: 44.44444444444444vw;
+  position: relative;
+  height: 90vh;
+  max-height: none;
+  margin-top: 5vh;
+  margin-left: 2.777777777777778vw;
+}
+
+.imgList .item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 44.44444444444444vw;
+  height: 90vh;
+  margin-top: 0vh;
+  margin-left: 0vw;
+  float: none;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.imgList .item::before {
+  content: "";
+  display: block;
+  background: #232025;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.imgList .item.on {
+  z-index: 3;
+}
+
+.imgList .item.on::before {
+  left: 100%;
+  width: 0;
+}
+
+.detail .desc {
+  font-size: 0.8333vw;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.detail .desc p {
+  margin-bottom: 1vh;
+}
+
+.detail .desc a {
+  color: #fff;
 }

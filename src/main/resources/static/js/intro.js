@@ -3,6 +3,7 @@
 	let prevScrollHeight = 0; // 이전 section 높이의 합
 	let currentScene = 0; // 현재 보고있는 section
 	let enterNewScene = false; // 새로운 section이 시작되는 순간 true
+	let workPortFolio = document.querySelector(".workPortFolio");
 	const sceneInfo = [
 		{
 			type: 'sticky',
@@ -38,12 +39,13 @@
 			}
 		},
 		{
+			// type: 'normal',
 			type: 'normal',
-			// heightNum: 5,
+			heightNum: 5,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-1'),
-			}
+			},
 		},
 		{
 			type: 'sticky',
@@ -79,8 +81,8 @@
 			}
 		},
 		{
-			type: 'sticky',
-			heightNum: 5,
+			type: 'normal',
+			// heightNum: 5,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
@@ -104,7 +106,6 @@
 		});
 
 
-
 		yOffset = window.pageYOffset;
 		let totalScrollHeight = 0;
 		for (let i = 0; i < sceneInfo.length; i++) {
@@ -115,6 +116,9 @@
 			}
 		}
 		document.body.setAttribute('id', `show-scene-${currentScene}`)
+
+		// let portFolioList = workPortFolio.children;
+		// workPortFolio.style.width = (window.innerWidth * portFolioList.length) + "px";
 	}
 
 	function calcValues(values, currentYoffset) {
@@ -150,7 +154,6 @@
 		switch (currentScene) {
 			case 0:
 				// console.log('0 play');
-				console.log(calcValues(values.messageA_opacity_in, currentYOffset));
 				if (scrollRatio <= 0.22) {
 					// in
 					let gytjq = document.querySelector(".profileImg");
@@ -196,6 +199,26 @@
 
 				break;
 
+			case 1:
+				// let rv = calcValues(values.messageA_opacity_in, currentYOffset);
+				// workPortFolio.style.opacity = rv;
+				// workPortFolio.style.transform = `translate3d(0, ${calcValues(values.messageA_translateY_in, currentYOffset)}%, 0)`;
+				// $(workPortFolio).children().css({
+				// 	transform: `scale(${rv})`
+				// })
+				// if (rv == 1) {
+				// let a = currentYOffset / workPortFolio.offsetWidth * 20
+				// workPortFolio.style.transform = `translate3d(-${a}%, ${calcValues(values.messageA_translateY_in, currentYOffset)}%, 0)`;
+				// console.log(currentYOffset / Window.innerHeight);
+				// }
+				// values.canvas_scale[0] = canvasScaleRatio;
+				// console.log(document.body.offsetWidth);
+				// values.canvas_scale[1] = document.body.offsetWidth / (1.5 * 1920);
+				// values.canvas_scale[2].start = values.blendHeight[2].end;
+				// values.canvas_scale[2].end = values.canvas_scale[2].start + 0.2;
+
+				// workPortFolio.style.transform = `scale(${calcValues(values.canvas_scale, currentYOffset)})`;
+				break;
 			case 2:
 				// console.log('2 play');
 				if (scrollRatio <= 0.25) {
@@ -265,6 +288,12 @@
 		if (enterNewScene) {
 			return false;
 		}
+
+		if (currentScene == 1) {
+			workPortFolio.classList.add("on");
+		} else {
+			workPortFolio.classList.remove("on");
+		}
 		playAnimation();
 	}
 
@@ -293,7 +322,93 @@
 			behavior: 'smooth'
 		});
 
-
 	}
 
+
+	let slider = $('.workPortFolio .slider');
+	slider.slick({
+		infinite: true,
+		dots: false,
+		arrows: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		swipe: false
+	});
+
+
+	slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+		var current = currentSlide + 1
+		let bgColor = slider.find("article").eq(nextSlide + 1).data("color")
+		document.documentElement.style.setProperty("--portfolioBg", `${bgColor}`);
+	});
+
+	$(workPortFolio).find(".arrows button").on("click", function (e) {
+		let className = e.currentTarget.className;
+		switch (className) {
+			case "next":
+				slider.slick("slickNext");
+				break;
+			case "prev":
+				slider.slick("slickPrev");
+				break;
+		}
+
+	})
+
+
+
+	let title = document.querySelector(".title");
+	console.log(title);
+	let titleArr = title.innerText.split("");
+	title.innerHTML = "";
+
+	for (let i = 0; i < titleArr.length; i++) {
+		const element = titleArr[i];
+		let childDiv = document.createElement("div")
+		childDiv.innerText = `${element}`
+		title.append(childDiv)
+	}
+
+
+	let thumImg = document.querySelectorAll(".thum li");
+	let onBox = document.querySelector(".thum .onBox");
+	let imgList = document.querySelectorAll(".imgList");
+	window.addEventListener("load", onBoxSettting)
+	window.addEventListener("resize", onBoxSettting)
+
+	function onBoxSettting() {
+		thumImg = document.querySelectorAll(".thum li");
+		console.log(thumImg[0].offsetWidth);
+		onBox.style.width = `${thumImg[0].offsetWidth}px`;
+
+		for (let i = 0; i < thumImg.length; i++) {
+			const element = thumImg[i];
+			if (element.classList.contains("on")) {
+				onBox.style.left = `${element.offsetLeft - 5}px`
+			}
+		}
+	}
+
+	for (let i = 0; i < thumImg.length; i++) {
+		const thumImgEle = thumImg[i];
+		thumImgEle.addEventListener("click", function () {
+			onBox.style.left = `${thumImgEle.offsetLeft - 5}px`
+			console.log(thumImg);
+			thumImg.forEach(element => {
+				if (element.classList.contains("on")) {
+					element.classList.remove("on")
+				}
+			});
+			thumImgEle.classList.add("on")
+
+
+			for (let i = 0; i < imgList[0].children.length; i++) {
+				const imgListEle = imgList[0].children[i];
+				if (imgListEle.classList.contains("on")) {
+					imgListEle.classList.remove("on")
+				}
+			}
+			imgList[0].children[i].classList.add("on")
+		})
+	}
 })();
