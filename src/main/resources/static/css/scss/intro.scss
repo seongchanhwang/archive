@@ -315,6 +315,22 @@ body.before-load {
 		font-weight: bold;
 		opacity: 0;
 	}
+
+	.bigTit {
+		position: absolute;
+		top:5vh;
+		font-size: 10vw;
+		text-transform: uppercase;
+		font-weight: 700;
+		opacity: 0.1;
+		z-index: -1;
+		left:0;
+
+		&.left {
+		}
+		&.right {
+		}
+	}
 }
 
 #show-scene-0 #scroll-section-0 .sticky-elem,
@@ -326,6 +342,7 @@ body.before-load {
 
 #scroll-section-1 {
 	// transition: background 0.5s;
+	padding-top: 0;
 }
 
 #show-scene-1 #scroll-section-1 {

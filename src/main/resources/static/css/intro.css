@@ -355,11 +355,26 @@ body.before-load {
   opacity: 0;
 }
 
+.sticky-elem .bigTit {
+  position: absolute;
+  top: 5vh;
+  font-size: 10vw;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.1;
+  z-index: -1;
+  left: 0;
+}
+
 #show-scene-0 #scroll-section-0 .sticky-elem,
 #show-scene-1 #scroll-section-1 .sticky-elem,
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
   display: block;
+}
+
+#scroll-section-1 {
+  padding-top: 0;
 }
 
 .normal-content {
