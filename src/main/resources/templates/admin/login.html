@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,25 +12,29 @@
 
 <body>
 	<div class="admin-login">
-		<div class="bg"></div>
-		<form action="/admin/login" method="post">
+	<!-- login form -->
+		<form id="loginForm" method="post" action="/admin/login">
 			<article>
 				<div class="thum">
 					<img src="/img/admin/admin-logo.png" alt="" />
 				</div>
-				<!-- <div class="txt">Welcome back!</div> -->
 				<div class="input-area">
 					<p><input class="name" type="text" value="" name="userName" placeholder="Username" /></p>
 					<p><input type="password" name="password" id="" placeholder="password" /></p>
 				</div>
+				<span th:text="${errMsg}">야호</span>
+				<div th:if = "${errMsg != null}">
+				</div>
+				<!--id-remember-checkbox area-->
 				<div class="id-remember">
+
 					<input type="checkbox" name="" id="id-chk">
 					<label for="id-chk">
 						<span><i class="xi-check-min"></i></span>
 						아이디 저장하기
 					</label>
 				</div>
-				<button type="submit">SIGN IN</button>
+				<button id="login-btn" type="submit" >SIGN IN</button>
 			</article>
 		</form>
 	</div>

@@ -1,4 +1,4 @@
-package com.portfolio.archive.admin.domain;
+package com.portfolio.archive.admin.login.domain;
 
 
 //import javax.persistence.Entity;

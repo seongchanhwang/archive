@@ -1,6 +1,6 @@
-package com.portfolio.archive.admin.mapper;
+package com.portfolio.archive.admin.login.mapper;
 
-import com.portfolio.archive.admin.domain.Admin;
+import com.portfolio.archive.admin.login.domain.Admin;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Optional;

@@ -2,12 +2,20 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Admin Home</title>
+	<script src="//code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
 	<header>
 		<div id="logo"><a href="#l"><img src="/src/main/resources/static/img/admin/admin-logo.png" alt=""></a></div>
-		1gt 
 	</header>
+	<div id="boardList">
+
+	</div>
+	<div id="overlay"></div>
+	<button type="button" onclick="moveDetail();">추가</button>
+	<button type="button" onclick="updateBoard);">수정</button>
+	<button type="button" onclick="deleteBoard();">삭제</button>
 </body>
+<script src="../js/admin/board/board.js"></script>
 </html>

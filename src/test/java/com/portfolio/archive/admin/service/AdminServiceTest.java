@@ -1,7 +1,7 @@
 package com.portfolio.archive.admin.service;
 
-import com.portfolio.archive.admin.domain.Admin;
-import com.portfolio.archive.admin.mapper.AdminMapper;
+import com.portfolio.archive.admin.login.domain.Admin;
+import com.portfolio.archive.admin.login.mapper.AdminMapper;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;

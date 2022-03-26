@@ -1,10 +1,8 @@
-package com.portfolio.archive.admin.service;
+package com.portfolio.archive.admin.login.service;
 
-import com.portfolio.archive.admin.domain.Admin;
+import com.portfolio.archive.admin.login.domain.Admin;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Optional;
 
 public interface AdminService {
     /**
@@ -13,5 +11,9 @@ public interface AdminService {
      */
     public String login(Admin admin, HttpSession session);
 
+    /**
+     * session에 저장된 admin 정보를 제거한다.
+     * @param session
+     */
     public void logout(HttpSession session);
 }

@@ -1,4 +1,4 @@
-package com.portfolio.archive.admin.dto;
+package com.portfolio.archive.admin.login.dto;
 
 public class AdminForm {
 

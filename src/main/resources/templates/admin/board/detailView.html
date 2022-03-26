@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DetailView</title>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+<form id="boardForm" method="post" action="/admin/board/create" enctype="multipart/form-data">
+        <input type="text" name = "title" placeholder="Title을 입력하세요">
+        <input type="text" name = "subtitle" placeholder="subTitle을 입력하세요">
+        <input type="text" name = "description" placeholder="설명을 입력하세요">
+        <input type="date" name = "creationDate">
+        <input type="file" name = "imageUrl">
+        <input type="color" name = "color">
+        <input type="text" name = "portfolioUrl" placeholder="">
+        <button type="button" class="btn" onclick="createBoard();">저장</button>
+        <button type="button" class="btn" onclick="closeModal();">닫기</button>
+</form>
+</body>
+<script src="/../../js/admin/board/board.js"></script>
+</html>

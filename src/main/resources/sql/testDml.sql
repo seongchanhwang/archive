@@ -1,0 +1,1 @@
+insert into admin (username, password) values('chan9301', '1234');
